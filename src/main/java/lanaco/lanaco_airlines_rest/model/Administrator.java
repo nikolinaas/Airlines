@@ -7,8 +7,7 @@ import java.util.Objects;
 
 @Entity
 @Data
-public class Administrator {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class Administrator{
     @Id
     @Column(name = "id_person_person", nullable = false)
     private int idPersonPerson;
@@ -21,5 +20,9 @@ public class Administrator {
     @OneToOne
     @JoinColumn(name = "id_person_person", referencedColumnName = "id_person", nullable = false)
     private Person personByIdPersonPerson;
+    @ManyToOne
+    @JoinColumn(name = "id_airline_airline", referencedColumnName = "id_airline", nullable = false, insertable=false, updatable=false)
+    private Airline airlineByIdAirlineAirline;
+
 
 }

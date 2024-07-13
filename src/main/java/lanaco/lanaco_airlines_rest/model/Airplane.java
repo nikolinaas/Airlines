@@ -28,7 +28,7 @@ public class Airplane {
     @Column(name = "brand", nullable = false, length = 50)
     private String brand;
     @ManyToOne
-    @JoinColumn(name = "id_airline_airline", referencedColumnName = "id_airline", nullable = false)
+    @JoinColumn(name = "id_airline_airline", referencedColumnName = "id_airline", nullable = false,insertable=false, updatable=false)
     private Airline airlineByIdAirlineAirline;
 
 }

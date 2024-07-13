@@ -3,6 +3,7 @@ package lanaco.lanaco_airlines_rest.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
@@ -21,5 +22,8 @@ public class Destination {
     @Basic
     @Column(name = "is_active", nullable = false)
     private boolean isActive;
+    @OneToMany(mappedBy = "destinationByIdDestinationDestination")
+    private Collection<Flight> flightsByIdDestination;
+
 
 }

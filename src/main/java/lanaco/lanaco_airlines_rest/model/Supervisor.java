@@ -8,7 +8,6 @@ import java.util.Objects;
 @Entity
 @Data
 public class Supervisor {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id_person_person", nullable = false)
     private int idPersonPerson;

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.Collection;
+import java.util.Objects;
 
 @Entity
 @Data
@@ -16,6 +17,10 @@ public class Airline {
     @Column(name = "name", nullable = false, length = 50)
     private String name;
     @OneToMany(mappedBy = "airlineByIdAirlineAirline")
+    private Collection<Administrator> administratorsByIdAirline;
+    @OneToMany(mappedBy = "airlineByIdAirlineAirline")
     private Collection<Airplane> airplanesByIdAirline;
+    @OneToMany(mappedBy = "airlineByIdAirlineAirline")
+    private Collection<Flight> flightsByIdAirline;
 
 }

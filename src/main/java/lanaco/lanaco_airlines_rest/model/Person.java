@@ -1,17 +1,25 @@
 package lanaco.lanaco_airlines_rest.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Objects;
 
 @Entity
+@Table(name = "person", schema = "lanaco_airlines", catalog = "AirlinesLANACO")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","userrByIdPerson"})
 public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id_person", nullable = false)
-    private int idPerson;
+    private Integer idPerson;
     @Basic
     @Column(name = "firstname", nullable = false, length = 50)
     private String firstname;
@@ -27,11 +35,15 @@ public class Person {
     @Basic
     @Column(name = "password", nullable = false, length = 50)
     private String password;
-    @OneToOne(mappedBy = "personByIdPersonPerson")
-    private Administrator administratorByIdPerson;
-    @OneToOne(mappedBy = "personByIdPersonPerson")
-    private Supervisor supervisorByIdPerson;
-    @OneToOne(mappedBy = "personByIdPersonPerson")
-    private User userByIdPerson;
+    @Basic
+    @Column(name = "address", nullable = true, length = 50)
+    private String address;
+    @Basic
+    @Column(name = "city", nullable = true, length = 50)
+    private String city;
+    @Basic
+    @Column(name = "email", nullable = true, length = 50)
+    private String email;
 
-}
+
+ }

@@ -1,11 +1,10 @@
 package lanaco.lanaco_airlines_rest.controller;
 
 
-import lanaco.lanaco_airlines_rest.dto.LoginDTO;
+import lanaco.lanaco_airlines_rest.dto.RegisterDTO;
 import lanaco.lanaco_airlines_rest.model.Person;
 import lanaco.lanaco_airlines_rest.services.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,21 +12,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/login")
-public class LoginController {
+@RequestMapping("api/register")
+public class RegisterController {
+
 
 
     @Autowired
     private PersonService personService;
+
     @PostMapping()
-    public Person login(@RequestBody LoginDTO loginReq){
+    public Person register(@RequestBody RegisterDTO registerDTO){
 
-        System.out.println(loginReq.getUsername());
-
-       return personService.login(loginReq.getUsername(),loginReq.getPassword());
-
-
+        return personService.register(registerDTO);
     }
-
 
 }

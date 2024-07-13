@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.sql.Date;
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
@@ -40,6 +41,13 @@ public class Flight {
     @Basic
     @Column(name = "available_seats", nullable = false)
     private int availableSeats;
-
+    @OneToMany(mappedBy = "flightByFlightIdFlight")
+    private Collection<BuyTicket> buyTicketsByIdFlight;
+    @ManyToOne
+    @JoinColumn(name = "id_airline_airline", referencedColumnName = "id_airline", nullable = false,insertable=false, updatable=false)
+    private Airline airlineByIdAirlineAirline;
+    @ManyToOne
+    @JoinColumn(name = "id_destination_destination", referencedColumnName = "id_destination", nullable = false,insertable=false, updatable=false)
+    private Destination destinationByIdDestinationDestination;
 
 }
