@@ -7,6 +7,7 @@ import java.util.Objects;
 
 @Entity
 @Data
+@Table(name = "airplane", schema = "lanaco_airlines", catalog = "AirlinesLANACO")
 public class Airplane {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id

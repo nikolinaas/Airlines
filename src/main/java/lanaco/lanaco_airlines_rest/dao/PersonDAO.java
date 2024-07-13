@@ -9,4 +9,7 @@ public interface PersonDAO extends JpaRepository<Person,Integer> {
 
     public Person getPersonByUsernameAndPassword(String username, String password);
 
+    public Boolean existsByUsername(String username);
+    public  Person getPersonByUsername(String username);
+    public  Person getPersonByIdPerson(Integer id);
 }

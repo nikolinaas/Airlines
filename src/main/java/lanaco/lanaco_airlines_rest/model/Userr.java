@@ -15,12 +15,12 @@ import java.util.Objects;
 public class Userr {
     @Id
     @Column(name = "id_person_person", nullable = false)
-    private Integer idPersonPerson;
+    private Integer id;
     @Basic
     @Column(name = "suspended", nullable = false)
     private boolean suspended;
-    @OneToMany(mappedBy = "userrByUserIdPersonPerson")
-    private Collection<BuyTicket> buyTicketsByIdPersonPerson;
+//    @OneToMany(mappedBy = "userrByUserIdPersonPerson")
+//    private Collection<BuyTicket> buyTicketsByIdPersonPerson;
     @OneToOne
     @JsonIgnore
     @JoinColumn(name = "id_person_person", referencedColumnName = "id_person", nullable = false, insertable=false, updatable=false)

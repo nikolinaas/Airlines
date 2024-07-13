@@ -7,10 +7,11 @@ import java.util.Objects;
 
 @Entity
 @Data
+@Table(name = "administrator", schema = "lanaco_airlines", catalog = "AirlinesLANACO")
 public class Administrator{
     @Id
     @Column(name = "id_person_person", nullable = false)
-    private int idPersonPerson;
+    private int id;
     @Basic
     @Column(name = "id_airline_airline", nullable = false)
     private int idAirlineAirline;

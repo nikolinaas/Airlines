@@ -9,6 +9,7 @@ import java.util.Objects;
 
 @Entity
 @Data
+@Table(name = "flight", schema = "lanaco_airlines", catalog = "AirlinesLANACO")
 public class Flight {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -41,8 +42,8 @@ public class Flight {
     @Basic
     @Column(name = "available_seats", nullable = false)
     private int availableSeats;
-    @OneToMany(mappedBy = "flightByFlightIdFlight")
-    private Collection<BuyTicket> buyTicketsByIdFlight;
+//    @OneToMany(mappedBy = "flightByFlightIdFlight")
+//    private Collection<BuyTicket> buyTicketsByIdFlight;
     @ManyToOne
     @JoinColumn(name = "id_airline_airline", referencedColumnName = "id_airline", nullable = false,insertable=false, updatable=false)
     private Airline airlineByIdAirlineAirline;

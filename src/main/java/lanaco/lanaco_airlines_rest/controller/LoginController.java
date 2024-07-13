@@ -20,13 +20,17 @@ public class LoginController {
     @Autowired
     private PersonService personService;
     @PostMapping()
-    public Person login(@RequestBody LoginDTO loginReq){
+    public ResponseEntity<String> login(@RequestBody LoginDTO loginReq){
 
         System.out.println(loginReq.getUsername());
+        Person res = personService.login(loginReq.getUsername(),loginReq.getPassword());
+       if(res!=null){
 
-       return personService.login(loginReq.getUsername(),loginReq.getPassword());
+           return new ResponseEntity<String>("Ulogovali ste se kao: " + personService.getRole(res), HttpStatus.OK);
 
+       }
 
+return new ResponseEntity<String>("Neuspjesno logovanje, pokusajte ponovo", HttpStatus.BAD_REQUEST);
     }
 
 

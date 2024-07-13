@@ -3,7 +3,7 @@ package lanaco.lanaco_airlines_rest.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -26,12 +26,12 @@ public class BuyTicket {
     @Id
     @Column(name = "id", nullable = false)
     private int id;
-    @ManyToOne
-    @JoinColumn(name = "user_id_person_person", referencedColumnName = "id_person_person", nullable = false,insertable=false, updatable=false)
-    private Userr userrByUserIdPersonPerson;
-    @ManyToOne
-    @JoinColumn(name = "flight_id_flight", referencedColumnName = "id_flight", nullable = false, insertable=false, updatable=false)
-    private Flight flightByFlightIdFlight;
+//    @ManyToOne
+//    @JoinColumn(name = "user_id_person_person", referencedColumnName = "id_person_person", nullable = false,insertable=false, updatable=false)
+//    private Userr userrByUserIdPersonPerson;
+//    @ManyToOne
+//    @JoinColumn(name = "flight_id_flight", referencedColumnName = "id_flight", nullable = false, insertable=false, updatable=false)
+//    private Flight flightByFlightIdFlight;
 
 
 }

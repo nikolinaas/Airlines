@@ -68,28 +68,49 @@ public class PersonServiceImpl implements PersonService {
                 System.out.println("dodaje ga kao user"+person.getIdPerson());
 
                 Userr user = new Userr();
-                user.setIdPersonPerson(person.getIdPerson());
+                user.setId(person.getIdPerson());
                 user.setSuspended(false);
                 user  =  userrDAO.save(user);
-                System.out.println("dodaje ga kao user"+user.getIdPersonPerson());
+                System.out.println("dodaje ga kao user"+user.getId());
                // person.setUserrByIdPerson(user);
 
 //
                 personDAO.save(person);
             } case "ADMIN" -> {
                 Administrator admin = new Administrator();
-                admin.setIdPersonPerson(person.getIdPerson());
+                admin.setId(person.getIdPerson());
                 admin.setSuspended(false);
                 administratorDAO.save(admin);
             }
             case "SUPERVISOR" -> {
                 Supervisor supervisor = new Supervisor();
-                supervisor.setIdPersonPerson(person.getIdPerson());
+                supervisor.setId(person.getIdPerson());
                 supervisorDAO.save(supervisor);
             }
         }
         emailService.sendRegistrationEmail(registerReq.getUsername(), registerReq.getEmail());
 
         return person;
+    }
+
+    @Override
+    public String getRole(Person p) {
+
+        String role = "";
+
+        if(userrDAO.existsById(p.getIdPerson())){
+            role="USER";
+        }else if(supervisorDAO.existsById(p.getIdPerson())){
+            role="SUPERVISOR";
+        }else if(administratorDAO.existsById(p.getIdPerson())){
+            role="ADMIN";
+        }
+
+        return role;
+    }
+
+    @Override
+    public Person getPerson(Integer id) {
+        return personDAO.getPersonByIdPerson(id);
     }
 }
